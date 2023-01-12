@@ -14,9 +14,9 @@
 
 using namespace std;
 
-string palavra_secreta;
-map<char, bool> chutou;
-vector<char> chutes_errados;
+static string palavra_secreta;
+static map<char, bool> chutou;
+static vector<char> chutes_errados;
 
 int main() {
     imprime_cabecalho();
@@ -24,6 +24,8 @@ int main() {
     palavra_secreta = sorteia_palavra();
 
     while(nao_acertou(palavra_secreta, chutou) && chutes_errados.size() < 5) {
+        using namespace Forca;
+
         imprime_chutes_errados(chutes_errados);
 
         imprime_palavra_secreta(palavra_secreta, chutou);
